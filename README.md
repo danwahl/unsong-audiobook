@@ -1,7 +1,7 @@
 1. Create Python virtual environment using [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/):
 
 ```sh
-mkvirtualenv --python=/usr/bin/python3 ssc_podcast
+mkvirtualenv --python=/usr/bin/python3 unsong_audiobook
 pip install -r scripts/requirements.txt
 ```
 
@@ -13,8 +13,11 @@ export AWS_ACCESS_KEY_ID="..."
 export AWS_SECRET_ACCESS_KEY="..."
 ```
 
-3. Add `scripts/cron_script.sh` to `crontab`:
+3. Activate virtual environment and run script:
 
-```
-15 * * * * run-one /path/to/cron_script.sh
+```sh
+workon unsong_audiobook
+cd scripts
+source aws_access.sh
+python unsong_audiobook.py
 ```
